@@ -1,30 +1,49 @@
 //selector
-// var displayDescription = document.getElementById("description");
-// var currentTime = document.getElementById("currentDay");
-// var userInputs = [];
+var displayDescription = document.getElementsByClassName("description");
+var timeBlock = document.getElementsByClassName("time-bock");
 
 //Set clock with moment - the current day is displayed at the top of the calendar
-var time = moment().format("MMMM Do YYYY, h:mm:ss a");
-$("#currentDay").text(time);
+var datetime = null,
+        date = null;
+
+var update = function () {
+    date = moment(new Date())
+    datetime.html(date.format('dddd, MMMM Do YYYY, HH:mm:ss'));
+};
+
+$(document).ready(function(){
+    datetime = $('#currentDay')
+    update();
+    setInterval(update, 1000);
+});
+// var time = moment().format("MMMM Do YYYY, HH:mm:ss");
+// $("#currentDay").text(time);
 
 //begins function using Jquery syntax
 $(document).ready(function(){
+    colorUpdater();
 //     //I click into a timeblock, enter an event, I click the save button for that timeblock
     $(".saveBtn").on("click", function(){
         var value = $(this).siblings(".description").val()
         var time = $(this).parent().attr("id")
-        userInputs = JSON.parse(localStorage.getItem("userInputs"));
         //the text for that event is saved in local storage
-        localStorage.setItem("userInputs", JSON.stringify([{"time": time, "value": value}]));
+        localStorage.setItem(time, value);
         ////show event on block the saved events persists
-        $('.description').append("<textarea>" + userInputs + "</textarea>"); $("input[type=text], textara").val("");
     })
-
-
-
-
-
-
+})
 //each timeblock is color coded to indicate whether it is in the past, present, or future
-
- })
+function colorUpdater() {
+    var currentHour = moment().format('H');
+    $(".time-block").each(function(){
+        console.log($(this).data('hour'));
+        if (currentHour == $(this).data('hour')) {
+            $(this).addClass("present");
+        }else if (currentHour < $(this).data('hour')) {
+            $(this).addClass("future");
+        }else{
+            $(this).addClass("past");
+        }
+    })
+    }
+// });
+    
