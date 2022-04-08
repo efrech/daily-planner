@@ -1,6 +1,3 @@
-//selector
-var displayDescription = document.getElementsByClassName("description");
-
 //Set clock with moment - the current day is displayed at the top of the calendar
 var datetime = null,
         date = null;
@@ -40,8 +37,6 @@ function getEvents (){
     })
 
 }
-// displayDescription = JSON.parse(localStorage.getItem('value'));
-// '<textarea>' + localStorage.getItem('value', JSON.stringify(value)) + '</textarea>';
 
 //each timeblock is color coded to indicate whether it is in the past, present, or future
 function colorUpdater() {
@@ -56,5 +51,4 @@ function colorUpdater() {
         }
     })
     }
-// });
     
