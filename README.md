@@ -15,9 +15,9 @@ We are also using [Moment.js](https://momentjs.com/) library for the date and ti
 - The text for that event is saved in local storage
 ```When refreshing page, the saved events persist
 
-## Mock-up
+### Mock-up
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/daily-planner_EF.png)
+![daily Planner ⏰ ](./assets/images/daily-planner_EF.png)
 
 ### App links
 
