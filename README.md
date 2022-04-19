@@ -8,12 +8,12 @@ We are also using [Moment.js](https://momentjs.com/) library for the date and ti
 
 ## App functionality
 
-```The current day is displayed at the top of the calendar
+The current day is displayed at the top of the calendar
 - Timeblocks available for standard business hours
 - Each timeblock is color coded to indicate whether it is in the past, present, or future
 - It allows user to click into a timeblock, enter an event and then click the save button for that timeblock
 - The text for that event is saved in local storage
-```When refreshing page, the saved events persist
+When refreshing page, the saved events persist
 
 ### Mock-up
 
